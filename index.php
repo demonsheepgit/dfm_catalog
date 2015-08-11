@@ -36,6 +36,9 @@ $pagination->records_per_page($db::$rows_per_page);
 </head>
 <body>
 	<div>
+	<h2>DuaneFM Catalog</h2>
+	</div>
+	<div>
 		<form id='search_form' name='search' method='get' action='index.php'>
 			<label for='genre'>Genre:</label>
 			<select id='genre' name='genre'>
@@ -64,7 +67,7 @@ $pagination->records_per_page($db::$rows_per_page);
 		</form>
 	</div>
 	<div style='padding-top:40px;font-weight:bold;'>
-		Found <span id='song_count'><?= $song_data['found_rows'] ?></span> songs
+		Found <span id='song_count'><?= number_format($song_data['found_rows']) ?></span> tracks
 	</div>
 
 	<div style='width:80%'>
