@@ -1,0 +1,45 @@
+body {
+	font-family: verdana;
+	font-size: 12px;
+}
+
+table {
+	border-collapse: collapse;
+	width:100%;
+}
+
+
+td {
+	border:none;
+	border-width: thin;
+	border-color: #aaa;
+	border-collapse: collapse;
+}
+
+th {
+	border: none;
+	border-width: 0px;
+	text-align: left;
+	font-size: 14px;
+}
+
+th img {
+	width:16px;
+	height:16px;
+	opacity: 0.2;
+}
+
+th img.active {
+	opacity: 1.0;
+}
+
+td {
+	padding: 6px;
+}
+
+tr:nth-child(even) {
+	background: #eee
+}
+tr:nth-child(odd) {
+	background: #fff
+}
