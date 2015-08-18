@@ -44,8 +44,13 @@ function format_genre_list($db, $genre_ids, $target_genre = 0, $dfm_genre) {
 
 	$genre_list = $db->genre_names_sorted($genre_ids);
 	foreach($genre_list as $genre_id => $genre_name) {
-		$class = $genre_id == $target_genre ? 'target_genre' : '';
-		$genre_items_html .= "<div class='$class'>$genre_name</div>\n";
+		if ($genre_id == $target_genre) {
+			$genre_items_html .= "<div class='target_genre'>$genre_name</div>\n";
+		} else {
+			$url = $_SERVER['PHP_SELF'] . '?genre=' . $genre_id;
+			$genre_items_html .= "<div><a href='$url'>$genre_name</a></div>\n";
+		}
+
 	}
 
 	$genre_html = "<div class='genre_list'>\n";
@@ -134,8 +139,8 @@ function format_genre_list($db, $genre_ids, $target_genre = 0, $dfm_genre) {
 					printf("<tr>\n");
 					printf("<td>%d</td>", $song['id']);
 					printf("<td>%s</td>", $song['title']);
-					printf("<td>%s</td>", $song['artist']);
-					printf("<td>%s</td>", $song['album']);
+					printf("<td><a href='%s'>%s</a></td>", $_SERVER['PHP_SELF'] . '?artist=' . $song['artist'], $song['artist']);
+					printf("<td><a href='%s'>%s</a></td>", $_SERVER['PHP_SELF'] . '?album=' . $song['album'], $song['album']);
 					printf("<td class='genre_list'>%s</td>\n", format_genre_list($db, $song['genre_ids'], $request['genre'], $song['dfm_genre']));
 					printf("</tr>\n");
 				}
