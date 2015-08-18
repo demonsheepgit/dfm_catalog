@@ -37,6 +37,22 @@ td {
 	padding: 6px;
 }
 
+
+td.genre_list {
+	font-size:10px;
+}
+div.genre_list {
+	
+}
+
+.alternate_genre {
+	font-style: italic;
+}
+
+.target_genre {
+	font-weight: bold;
+}
+
 tr:nth-child(even) {
 	background: #eee
 }
